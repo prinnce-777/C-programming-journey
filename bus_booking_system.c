@@ -11,11 +11,13 @@ struct bus  {
 };
 void app_options() {
     struct bus b[1];
+    int process =0;
     int choiceo;
     int AVB = 3;            //AVB = number of busses avilable
     int count=24;            //count = number of seats
     int phone_num;
     int id;
+    while (1) {
     printf("1.book tickets\n");
     printf("2.show bookings\n");
     printf("3.cancelled tickets\n");
@@ -62,11 +64,6 @@ void app_options() {
         printf("enter your aadhar card number (or) PAN card number-");
         scanf("%d",&id);
         printf("id-%d\n",id);
-       }
-      }
-}
-   void payments() {
-       struct bus b[1];
        int choiceg;
        int choicep;
        int ootp=4545;
@@ -85,6 +82,7 @@ void app_options() {
        int otpdo;
        int otpco;
        int credit_o;
+       int count=25;
        printf("enter your gender--\n");
          printf("1.male\n");
          printf("2.female\n");
@@ -117,13 +115,16 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                          printf("number of seats avilable -%d\n",count);
+                          process++;
                        }  else {
                            printf("--your payment is failed, try again--\n");
                        }
                        break;
                    }
                     case 2: if(choicep==2) {
-                        printf("enter your credit card number-\n");
+                        printf("enter your debit card number-\n");
                         printf("enter the otpd-");
                         scanf("%d",&otpd);
                          if (ootp==otpd)  {
@@ -134,6 +135,9 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                          printf("number of seats avilable -%d\n",count);
+                            process++;
                        } else {
                            printf("--your payment is failed, try again--\n");
                        }
@@ -151,6 +155,9 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                        printf("number of seats avilable -%d\n",count);
+                           process++;
                        } else {
                            printf("--your payment is failed, try again--\n");
                        }
@@ -158,6 +165,9 @@ void app_options() {
                    }
                       case 4: if(choicep==4) {
  printf("attended to bustand counter before 13:00pm, so pay at the counter and collect your ticket at the counter itself");
+ count--;
+   process++;
+  printf("number of seats avilable -%d\n",count);
     break;
                       }
                        }          //switch choice p
@@ -176,6 +186,9 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                          printf("number of seats avilable -%d\n",count);
+                            process++;
                         break;
                     }
           case 3: if(choiceg==3) {
@@ -193,6 +206,8 @@ void app_options() {
                    case 1: if(choicep==1)  {
                        printf("enter the upi number-");
                        scanf("%d",&oupi);
+                       printf("enter the last thing-");
+                       scanf("%s",&last_thing);
                        printf("enter the otp-");
                        scanf("%d",&otpuo);
                        if (ootp==otpuo)  {
@@ -203,13 +218,16 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                          printf("number of seats avilable -%d\n",count);
+                            process++;
                        } else {
                            printf("--your payment is failed, try again--\n");
                        }
                        break;
                    }
                     case 2: if(choicep==2) {
-                        printf("enter your credit card number-\n");
+                        printf("enter your debit card number-\n");
                         printf("enter the otpd");
                         scanf("%d",&otpdo);
                          if (ootp==otpdo)  {
@@ -220,6 +238,9 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                         printf("number of seats avilable -%d\n",count);
+                            process++;
                        } else {
                            printf("--your payment is failed, try again--\n");
                        }
@@ -238,6 +259,9 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
+                         count--;
+                          printf("number of seats avilable -%d\n",count);
+                            process++;
                        } else {
                            printf("--your payment is failed, try again--\n");
                        }
@@ -245,16 +269,39 @@ void app_options() {
                    }
                       case 4: if(choicep==4) {
  printf("attended to bustand counter before 13:00pm, so pay at the counter and collect your ticket at the counter itself");
+ count--;
+  printf("number of seats avilable -%d\n",count);
+    process++;
     break;
                       }
                        }          //switch choice p
                        break;
                     }             //choiceg
                }                 // switch choiceg
-          }
+        break;  // for case 1;
+}             //case 1
+        case 2: if(process==0) {
+            printf("--no bookings--\n");
+            break;
+        } else {
+            printf("bus number-%d\n",b[0].bus_number);
+             printf("seat number-%d\n",b[0].seat);
+             printf("first name-%s\n",b[0].first_name);
+              printf("first name-%s\n",b[0].last_name);
+             printf("phone num-%d\n",phone_num);
+             printf("id-%d\n",id);
+              printf("pickup at bustand, 'stand-4'\n");
+                          printf("timings- pickup : 13:00\n");
+                          printf("          drop  : 17:05\n");
+                    printf("for any further details contact - 9988770\n");
+                         break;
+        }
+}             //switch (choiceo)
+}             //loop
+}             //add options
+
     int main() {
         app_options();
-        payments();
      return 0;
     }
        
