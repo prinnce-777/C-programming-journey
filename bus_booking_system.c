@@ -17,10 +17,13 @@ void app_options() {
     int count=24;            //count = number of seats
     int phone_num;
     int id;
+     int choicec;
+     int cancel=0;
+     int count2;
     while (1) {
     printf("1.book tickets\n");
     printf("2.show bookings\n");
-    printf("3.cancelled tickets\n");
+    printf("3.cancel tickets \n");
     printf("4.exit\n");
     printf("enter the choiceo-");
     scanf("%d",&choiceo);
@@ -82,7 +85,6 @@ void app_options() {
        int otpdo;
        int otpco;
        int credit_o;
-       int count=25;
        printf("enter your gender--\n");
          printf("1.male\n");
          printf("2.female\n");
@@ -155,7 +157,7 @@ void app_options() {
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
                          printf("for any further details contact - 9988770");
-                         count--;
+                        count--;
                         printf("number of seats avilable -%d\n",count);
                            process++;
                        } else {
@@ -185,8 +187,8 @@ void app_options() {
                           printf("pickup at bustand, 'stand-4'\n");
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
-                         printf("for any further details contact - 9988770");
-                         count--;
+                       printf("for any further details contact - 9988770\n");
+                          count--;
                           printf("number of seats avilable -%d\n",count);
                             process++;
                         break;
@@ -217,7 +219,7 @@ void app_options() {
                           printf("pickup at bustand, 'stand-4'\n");
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
-                         printf("for any further details contact - 9988770");
+                    printf("for any further details contact - 9988770\n");
                          count--;
                           printf("number of seats avilable -%d\n",count);
                             process++;
@@ -237,8 +239,8 @@ void app_options() {
                           printf("pickup at bustand, 'stand-4'\n");
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
-                         printf("for any further details contact - 9988770");
-                         count--;
+                     printf("for any further details contact - 9988770\n");
+                          count--;
                          printf("number of seats avilable -%d\n",count);
                             process++;
                        } else {
@@ -258,7 +260,7 @@ void app_options() {
                           printf("pickup at bustand, 'stand-4'\n");
                           printf("timings- pickup : 13:00\n");
                           printf("          drop  : 17:05\n");
-                         printf("for any further details contact - 9988770");
+                    printf("for any further details contact - 9988770\n");
                          count--;
                           printf("number of seats avilable -%d\n",count);
                             process++;
@@ -280,7 +282,7 @@ void app_options() {
                }                 // switch choiceg
         break;  // for case 1;
 }             //case 1
-        case 2: if(process==0) {
+        case 2: if(process==0 && choiceo==2) {
             printf("--no bookings--\n");
             break;
         } else {
@@ -296,6 +298,42 @@ void app_options() {
                     printf("for any further details contact - 9988770\n");
                          break;
         }
+          case 3: if(choiceo==3) {
+               printf("do you want to cancel the tickets\n");
+              printf("yes\n");
+              printf("no\n");
+              printf("enter the choicec-");
+              scanf("%d",&choicec);
+              switch (choicec) {
+                  case 1: if(choicec==1) {
+                      printf("--tickets has been cancelled--\n");
+                      printf("the  details of cancelled ticket is-\n");
+                      printf("bus number-%d\n",b[0].bus_number);
+             printf("seat number-%d\n",b[0].seat);
+             printf("first name-%s\n",b[0].first_name);
+              printf("first name-%s\n",b[0].last_name);
+             printf("phone num-%d\n",phone_num);
+             printf("id-%d\n",id);
+              printf("pickup at bustand, 'stand-4'\n");
+                          printf("timings- pickup : 13:00\n");
+                          printf("          drop  : 17:05\n");
+                    printf("for any further details contact - 9988770\n");
+                    cancel++;
+                    count++;
+         printf("in bus -%d, remaining seats-%d\n",count,b[0].bus_number);
+                         break;
+          } 
+          case 2: if(choicec==2) {
+              printf("--no cancellations--\n");
+                     break;;
+                 }
+          }    //switch (choicec)
+          break;
+          }     //end of choiceo 3 (cancell) 
+          case 4: if(choiceo==4) {
+              printf("--thank you for choosing our app--\n");
+              break;
+          }
 }             //switch (choiceo)
 }             //loop
 }             //add options
