@@ -325,7 +325,7 @@ void app_options() {
           } 
           case 2: if(choicec==2) {
               printf("--no cancellations--\n");
-                     break;;
+                     break;
                  }
           }    //switch (choicec)
           break;
